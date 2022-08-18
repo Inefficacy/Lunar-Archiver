@@ -1,7 +1,6 @@
 from urllib import request
 import requests
 import colorama
-import hashlib
 
 class LcAPI:
 	def print_(self, type, state, message):
@@ -32,4 +31,14 @@ class LcAPI:
 		for artifact in self.rjson['launchTypeData']['artifacts']:
 			if artifact['name'] == name:
 				self.print_(0, 'download-artifact', f'found artifact {name}')
-				r = request.get()
+				try:
+					r = request.get()
+				except requests.exceptions.RequestException as e:
+					self.print_(2, 'download-artifact', f'{e} on {name}')
+					return False
+				if r.status_code == 200 and r.content != None:
+					self.print_(1, 'download-artifact', f'finished downloading {name}')
+				else:
+					self.print_(2, 'download-artifact', f'status code {r.status_code} on {name}')
+					return False
+				return r.content
