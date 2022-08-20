@@ -1,4 +1,3 @@
-from urllib import request
 import requests
 import colorama
 
@@ -32,7 +31,7 @@ class LcAPI:
 			if artifact['name'] == name:
 				self.print_(0, 'download-artifact', f'found artifact {name}')
 				try:
-					r = request.get()
+					r = requests.get()
 				except requests.exceptions.RequestException as e:
 					self.print_(2, 'download-artifact', f'{e} on {name}')
 					return False
