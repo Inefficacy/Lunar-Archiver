@@ -1,0 +1,21 @@
+{
+	"saveJar": true,
+	"saveResponse": true,
+	"saveBuildData": true,
+	"folderStructure": "out/$os/$version/$buildhash/",
+	"verbose": true,
+	"mainFile": {
+		"darwin": "lunar-prod-optifine.jar",
+		"linux": "lunar.jar",
+		"win32": "lunar.jar"
+	},
+	"launcherRequest": {
+		"hwid": null,
+		"os": "darwin/win32/linux",
+		"arch": "x64/x86",
+		"version": "1.7.10/1.8.9/etc",
+		"branch": "master",
+		"luanch_type": "OFFLINE/ONLINE",
+		"classifier": "optifine"
+	}
+}

@@ -19,24 +19,26 @@ class LcAPI:
 			self.print_(2, 'download', e)
 			return False
 		if r.status_code == 200 and r.json() != None:
-			self.print_(1, 'download', 'finished downloading')
+			self.print_(0, 'download', 'finished downloading')
 		else:
 			self.print_(2, 'download', f'status code {r.status_code}')
 			return False
 		self.rjson = r.json()
-		return r.content
+		return r
 	def downloadArtifact(self, name, checkSHA1=False):
-		self.print_(3, 'download-artifact', name)
+		self.print_(3, 'download-artifact', f'downloading {name}')
 		for artifact in self.rjson['launchTypeData']['artifacts']:
 			if artifact['name'] == name:
 				self.print_(0, 'download-artifact', f'found artifact {name}')
 				try:
-					r = requests.get()
+					for a in self.rjson['launchTypeData']['artifacts']:
+						if a['name'] == name:
+							r = requests.get(a['url'])
 				except requests.exceptions.RequestException as e:
 					self.print_(2, 'download-artifact', f'{e} on {name}')
 					return False
 				if r.status_code == 200 and r.content != None:
-					self.print_(1, 'download-artifact', f'finished downloading {name}')
+					self.print_(0, 'download-artifact', f'finished downloading {name}')
 				else:
 					self.print_(2, 'download-artifact', f'status code {r.status_code} on {name}')
 					return False

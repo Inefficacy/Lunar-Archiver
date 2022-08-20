@@ -14,13 +14,16 @@ Thumbs.db
 
 # automation
 gitpush.sh
-genreq.py
 
 # Visual Studio Code
 .vscode
 
 # Visual Studio 2015
 .vs/
+
+# Other
+config.json
+out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
