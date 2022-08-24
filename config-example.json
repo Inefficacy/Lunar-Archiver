@@ -4,6 +4,10 @@
 	"saveBuildData": true,
 	"folderStructure": "out/$os/$version/$buildhash/",
 	"verbose": true,
+	"avoidDuplicate": {
+		"enabled": true,
+		"path": "out/$os/$version/last.json"
+	},
 	"mainFile": {
 		"darwin": "lunar-prod-optifine.jar",
 		"linux": "lunar.jar",

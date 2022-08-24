@@ -20,7 +20,6 @@
 
 ## To-Do
  - [x] API
- - [ ] Check if version is already downloaded
  - [ ] Get build data on MacOS
  - [ ] Multi-Threaded download
  - [ ] Check SHA1 hash when downloading an artifact
