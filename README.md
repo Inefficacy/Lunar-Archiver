@@ -15,11 +15,11 @@
 | saveBuildData | boolean | save lunarBuildData.txt |
 | folderStrcuture | string | output path |
 | verbose | bool | show whats happening |
+| avoidDuplicate | JSON | download duplicates |
 | mainFile | JSON | main JAR file |
 | launchRequest | JSON | what will be sent to the Lunar API |
 
 ## To-Do
  - [x] API
  - [ ] Get build data on MacOS
- - [ ] Multi-Threaded download
- - [ ] Check SHA1 hash when downloading an artifact
+ - [ ] Check SHA1 hash after downloading an artifact
