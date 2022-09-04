@@ -23,3 +23,6 @@
  - [x] API
  - [ ] Get build data on MacOS
  - [ ] Check SHA1 hash after downloading an artifact
+
+## Discord
+http://s.inefficacy.cf/lunararchives
