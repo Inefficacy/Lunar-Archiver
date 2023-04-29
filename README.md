@@ -16,13 +16,11 @@
 | folderStrcuture | string | output path |
 | verbose | bool | show whats happening |
 | avoidDuplicate | JSON | download duplicates |
-| mainFile | JSON | main JAR file |
 | launchRequest | JSON | what will be sent to the Lunar API |
+
+### On macOS/darwin use `lwjgl2-old-mac` for the branch
 
 ## To-Do
  - [x] API
- - [ ] Get build data on MacOS
+ - [x] Get build data on MacOS
  - [ ] Check SHA1 hash after downloading an artifact
-
-## Discord
-http://s.inefficacy.cf/lunararchives

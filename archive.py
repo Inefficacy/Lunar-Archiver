@@ -24,22 +24,22 @@ if launchRequest == False:
 
 artifacts = [a['name'] for a in launchRequest.json()['launchTypeData']['artifacts']]
 
-duplicates = []
-
 avoidDuplicatePath = config['avoidDuplicate']['path'].replace('$os', config['launcherRequest']['os']).replace('$version', config['launcherRequest']['version'])
 
-if config['avoidDuplicate']['enabled'] == True and os.path.exists(avoidDuplicatePath):
-	for oldArtifact in json.load(open(avoidDuplicatePath))['launchTypeData']['artifacts']:
-		for newArtifact in launchRequest.json()['launchTypeData']['artifacts']:
-			if newArtifact['name'] == oldArtifact['name']:
-				if newArtifact['sha1'] == oldArtifact['sha1']:
-					duplicates.append(newArtifact['name'])
+duplicates = [
+	newArtifact["name"]
+	for newArtifact in launchRequest.json()["launchTypeData"]["artifacts"]
+	if config["avoidDuplicate"]["enabled"] == True
+	and os.path.exists(avoidDuplicatePath) and any(
+		newArtifact["name"] == oldArtifact["name"]
+		and newArtifact["sha1"] == oldArtifact["sha1"]
+		for oldArtifact in json.load(open(avoidDuplicatePath))["launchTypeData"]["artifacts"]
+	)
+]
 
 lunarapi.print_(3, 'main', f'found {len(duplicates)} duplicate{"s"[:len(duplicates)^1]} artifact')
 
-mainFileName = config['mainFile'][config['launcherRequest']['os']]
-
-mainFile = lunarapi.downloadArtifact(mainFileName)
+mainFile = lunarapi.downloadArtifact('lunar.jar')
 
 buildData = None
 
@@ -67,10 +67,10 @@ if config['saveResponse']:
 open(avoidDuplicatePath, 'w+').write(launchRequest.text)
 
 if config['saveJar']:
-	open(savePath+mainFileName, 'wb').write(mainFile)
+	open(savePath+'lunar.jar', 'wb').write(mainFile)
 
 for artifactName in artifacts:
-	if artifactName != mainFileName and config['saveJar'] and artifactName not in duplicates:
+	if artifactName != 'lunar.jar' and config['saveJar'] and artifactName not in duplicates:
 		artifact = lunarapi.downloadArtifact(artifactName)
 		open(savePath+artifactName, 'wb').write(artifact)
 
