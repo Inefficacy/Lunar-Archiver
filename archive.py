@@ -37,7 +37,7 @@ duplicates = [
 	)
 ]
 
-lunarapi.print_(3, 'main', f'found {len(duplicates)} duplicate{"s"[:len(duplicates)^1]} artifact')
+lunarapi.print_(3, 'main', f'found {len(duplicates)} duplicate artifact{"s"[:len(duplicates)^1]}')
 
 mainFile = lunarapi.downloadArtifact('lunar.jar')
 
