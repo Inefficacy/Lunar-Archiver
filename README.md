@@ -18,8 +18,6 @@
 | avoidDuplicate | JSON | download duplicates |
 | launchRequest | JSON | what will be sent to the Lunar API |
 
-### On macOS/darwin use `lwjgl2-old-mac` for the branch
-
 ## To-Do
  - [x] API
  - [x] Get build data on MacOS

@@ -10,11 +10,11 @@
 		"path": "out/$os/$version/last.json"
 	},
 	"launcherRequest": {
-		"hwid": null,
+		"hwid": "hwid",
 		"os": "darwin/win32/linux",
 		"arch": "x64/x86",
 		"version": "1.7.10/1.8.9/etc",
-		"branch": "master/lwjgl2-old-mac",
+		"branch": "master",
 		"luanch_type": "OFFLINE/ONLINE",
 		"classifier": "optifine"
 	}
