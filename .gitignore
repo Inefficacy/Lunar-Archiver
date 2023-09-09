@@ -12,9 +12,6 @@ nupkg/
 ehthumbs.db
 Thumbs.db
 
-# automation
-gitpush.sh
-
 # Visual Studio Code
 .vscode
 
